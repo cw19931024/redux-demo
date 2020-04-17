@@ -10,10 +10,25 @@ class LeftMenu extends Component {
     const { menu } = this.props;
     return (
       <div className="left-content">
-        <ul>
+        <ul className={"leftMenu"}>
           {menu &&
             menu.map((item, key) => {
-              return <li key={key}>{item.title}</li>;
+              return (
+                <li key={key}>
+                  <p>{item.title}</p>
+                  {item.children && item.children.length > 0 && (
+                    <ul>
+                      {item.children.map((i) => {
+                        return (
+                          <li key={key}>
+                            <p>{item.title}</p>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </li>
+              );
             })}
         </ul>
       </div>
