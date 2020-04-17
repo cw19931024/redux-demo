@@ -3,15 +3,14 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import Header from "./common/commpents/Header";
-import Content from "./common/commpents/Content";
-import { addCart } from "./store/action/cart-actions";
-import './common/css/style.css'
+import Index from "./common/commpents/Index";
+import "./common/css/style.css";
 
 ReactDOM.render(
   <Provider store={store}>
-    <div id='app'>
+    <div id="app">
       <Header />
-      <Content />
+      <Index/>
     </div>
   </Provider>,
   document.getElementById("root")

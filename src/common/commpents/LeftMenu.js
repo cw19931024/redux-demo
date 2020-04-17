@@ -8,7 +8,6 @@ class LeftMenu extends Component {
 
   render() {
     const { menu } = this.props;
-    console.log(this.props);
     return (
       <div className="left-content">
         <ul>

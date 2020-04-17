@@ -12,7 +12,6 @@ class Caft extends Component {
 
   render() {
     const { tableSource } = this.props;
-    console.log(this.props);
     return (
       <div>
         <table className="table-lyout">

@@ -1,19 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import store from "../../store";
 import { getMenu, GET_MENU_LIST } from "../../store/action/leftMenu-actions";
-
 class Header extends Component {
-  constructor() {
-    super();
-    console.log(store.getState());
-    this.state = {
-      topMenu: [],
-    };
-  }
+  state = {
+    menuTop: [
+      { title: "客源管理", id: 1 },
+      { title: "房源管理", id: 2 },
+    ],
+  };
 
   changeMenu = (e) => {
-    console.log(e);
     const action = {
       type: GET_MENU_LIST,
       id: e,
@@ -24,23 +20,20 @@ class Header extends Component {
   render() {
     return (
       <header className={"app-header"}>
-        <a href="javascript:;" onClick={this.changeMenu.bind(this, 2)}>
-          房源管理
-        </a>
-        <a href="javascript:;" onClick={this.changeMenu.bind(this, 1)}>
-          客源管理
-        </a>
+        {this.state.menuTop.map((item, key) => {
+          return (
+            <a
+              href="#"
+              className="menu-btn"
+              onClick={this.changeMenu.bind(this, item.id)}
+            >
+              {item.title}
+            </a>
+          );
+        })}
       </header>
     );
   }
 }
-
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   console.log(dispatch, ownProps);
-//   return {
-//     add: (...args) => dispatch(addCart(...args)),
-//   };
-// };
-// export default connect(mapDispatchToProps)(Header);
 
 export default Header;
