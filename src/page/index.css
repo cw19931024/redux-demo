@@ -1,0 +1,9 @@
+.table-lyout{
+    max-width: 100%;
+    min-width: 1000px;
+    border:1px solid #ddd;
+    border-collapse: collapse;
+}
+.table-lyout tr,th,td{
+    border:1px solid #ddd;
+}

@@ -1,0 +1,39 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.app-header {
+  height: 60px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.app-content {
+  background-color: skyblue;
+  height: 100%;
+  display: flex;
+}
+.left-content{
+    width: 200px;
+    background-color: salmon;
+}
+.right-content{
+    background-color: forestgreen;
+    width: 100%;
+}
+a{
+    color: white;
+    padding:0 10px;
+}
