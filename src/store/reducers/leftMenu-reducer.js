@@ -1,4 +1,5 @@
-import { GET_MENU_LIST } from "../action/leftMenu-actions";
+import { GET_MENU_LIST } from "../actionTypes";
+
 const initialState = [];
 export default function (state = initialState, action) {
   switch (action.type) {

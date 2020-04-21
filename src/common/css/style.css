@@ -1,3 +1,6 @@
+* {
+  list-style-type: none;
+}
 html,
 body {
   padding: 0;
@@ -7,6 +10,9 @@ body {
 #root {
   height: 100%;
   min-height: 768px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #app {
   width: 100%;
@@ -20,27 +26,29 @@ body {
   color: white;
   padding: 10px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
 }
 .app-content {
   background-color: skyblue;
   height: 100%;
   display: flex;
 }
-.left-content{
-    width: 200px;
-    background-color: salmon;
+.left-content {
+  width: 200px;
+  background-color: salmon;
 }
-.right-content{
-    background-color: forestgreen;
-    width: 100%;
+.right-content {
+  background-color: forestgreen;
+  width: 100%;
 }
-.menu-btn{
-    color: white;
-    padding:0 10px;
-    line-height: 30px;
-    font-size: 16px;
+.menu-btn {
+  color: white;
+  padding: 0 10px;
+  line-height: 40px;
+  font-size: 16px;
 }
-.leftMenu{
+.leftMenu {
   padding: 0;
   margin: 0;
   display: flex;
@@ -48,8 +56,75 @@ body {
   padding: 10px;
   font-size: 14px;
 }
-.leftMenu li{
+.leftMenu li {
   list-style-type: none;
   line-height: 30px;
   cursor: pointer;
+}
+.userInfo {
+  min-width: 200px;
+  line-height: 40px;
+  text-align: right;
+  padding: 0 10px;
+}
+.userInfo ul {
+  display: none;
+}
+.userInfo:hover ul {
+  display: block;
+  position: absolute;
+  text-align: center;
+  padding: 0;
+  width: 100px;
+  background: black;
+  right: 10px;
+  top: 33px;
+}
+
+.userInfo:hover ul li {
+  cursor: pointer;
+}
+
+.loginDiv {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background: aliceblue;
+}
+
+.loginDiv p {
+  display: flex;
+  width: 100%;
+  margin: 10px 0;
+}
+.loginDiv p .label {
+  width: 50px;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 12px;
+  line-height: 29px;
+}
+.loginDiv p .input-ctrl {
+  width: calc(100% - 50px);
+  outline: none;
+  padding: 5px;
+}
+.login-btn {
+  width: 120px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: 5px;
+}
+.login-btn:hover {
+  background-color: #ddd;
+}
+
+.loginDiv .btn-lyout {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
 }

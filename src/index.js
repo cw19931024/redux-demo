@@ -4,14 +4,23 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Header from "./common/commpents/Header";
 import Index from "./common/commpents/Index";
+import Login from "./page/login";
 import "./common/css/style.css";
+import { getItem } from "./common/util/localstorage";
+
+const user = JSON.parse(getItem("user")) || {};
+console.log(user);
 
 ReactDOM.render(
   <Provider store={store}>
-    <div id="app">
-      <Header />
-      <Index/>
-    </div>
+    {user.isLogin ? (
+      <div id="app">
+        <Header />
+        <Index />
+      </div>
+    ) : (
+      <Login />
+    )}
   </Provider>,
   document.getElementById("root")
 );

@@ -8,7 +8,7 @@ class Index extends Component {
   render() {
     const { global } = this.props;
     console.log(this.props);
-    return global.topId != null ? <Context /> : <Hello />;
+    return global.defaultIndex ? <Context /> : <Hello />;
   }
 }
 

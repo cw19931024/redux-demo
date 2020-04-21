@@ -1,9 +1,9 @@
 import store from "../index";
-
-export const UPDATE_GLOBAL_DATA = "UPDATE_GLOBAL_DATA";
-export function editGlobal(action) {
+import { UPDATE_GLOBAL_DATA } from "../actionTypes";
+export function editGlobal(id) {
+  const action = {
+    type: UPDATE_GLOBAL_DATA,
+    id,
+  };
   store.dispatch(action);
 }
-
-
-
