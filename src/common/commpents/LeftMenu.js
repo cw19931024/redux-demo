@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import store from "../../store";
+import { getSaga } from "../../store/action/leftMenu-actions";
 
 class LeftMenu extends Component {
   constructor() {
     super();
+  }
+
+  componentDidMount(){
+    const action = getSaga();
+    store.dispatch(action)  
   }
 
   render() {
@@ -14,14 +21,14 @@ class LeftMenu extends Component {
           {menu &&
             menu.map((item, key) => {
               return (
-                <li key={key}>
+                <li key={item.key}>
                   <p>{item.title}</p>
                   {item.children && item.children.length > 0 && (
                     <ul>
                       {item.children.map((i) => {
                         return (
-                          <li key={key}>
-                            <p>{item.title}</p>
+                          <li key={i.key}>
+                            <p>{i.title}</p>
                           </li>
                         );
                       })}
