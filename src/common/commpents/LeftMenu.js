@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { BrowserRouter as Router, NavLink, } from "react-router-dom";
 import { Menu } from "antd";
 import store from "../../store";
 import { getSaga } from "../../store/action/leftMenu-actions";
@@ -41,7 +42,17 @@ class LeftMenu extends Component {
                   {item.children && item.children.length > 0 && (
                     item.children.map((i) => {
                       return (
-                        <Menu.Item>{i.title}</Menu.Item>
+                        <Menu.Item>
+                          <NavLink
+                            to={{
+                              pathname: i.url,
+                              params: { id: 1 },
+                              search: "?id=name",
+                            }}
+                          >
+                            {i.title}
+                          </NavLink>
+                        </Menu.Item>
                       );
                     })
                   )}

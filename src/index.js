@@ -8,17 +8,24 @@ import Login from "./page/login";
 import "./common/css/style.css";
 import "antd/dist/antd.css";
 import { getItem } from "./common/util/localstorage";
-
+import {
+  Switch,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  NavLink,
+  Link
+} from "react-router-dom";
 const user = JSON.parse(getItem("user")) || {};
 console.log(user);
 
 ReactDOM.render(
   <Provider store={store}>
     {user.isLogin ? (
-      <div id="app">
+      <Router id="app">
         <Header />
         <Index />
-      </div>
+      </Router>
     ) : (
         <Login />
       )}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Breadcrumb } from "antd";
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Caft from "../../page/caft";
 class RightContent extends Component {
   constructor() {
@@ -22,7 +23,9 @@ class RightContent extends Component {
             <Breadcrumb.Item>已上架列表</Breadcrumb.Item>
           </Breadcrumb>
         </Row>
-        <Caft />
+        <Switch>
+          <Route path="/commodity/list/scuess" component={Caft} />
+        </Switch>
       </div>
     );
   }
