@@ -1,43 +1,54 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Menu } from "antd";
 import store from "../../store";
 import { getSaga } from "../../store/action/leftMenu-actions";
+const { SubMenu } = Menu;
 
 class LeftMenu extends Component {
   constructor() {
     super();
+    this.state = {
+
+    }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const action = getSaga();
-    store.dispatch(action)  
+    store.dispatch(action)
+  }
+
+  handleClick = e => {
+    console.log(e)
   }
 
   render() {
     const { menu } = this.props;
+    const { defaultOpenKeys, selectedKeys } = this.state;
     return (
       <div className="left-content">
-        <ul className={"leftMenu"}>
+        <Menu
+          className={"leftMenu"}
+          onClick={this.handleClick}
+          selectedKeys={selectedKeys}
+          defaultOpenKeys={defaultOpenKeys}
+          mode="inline"
+        >
           {menu &&
             menu.map((item, key) => {
               return (
-                <li key={item.key}>
-                  <p>{item.title}</p>
+                <SubMenu key={item.key} title={item.title}>
                   {item.children && item.children.length > 0 && (
-                    <ul>
-                      {item.children.map((i) => {
-                        return (
-                          <li key={i.key}>
-                            <p>{i.title}</p>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    item.children.map((i) => {
+                      return (
+                        <Menu.Item>{i.title}</Menu.Item>
+                      );
+                    })
                   )}
-                </li>
+                </SubMenu>
               );
             })}
-        </ul>
+        </Menu>
       </div>
     );
   }

@@ -21,33 +21,34 @@ body {
   flex-direction: column;
 }
 .app-header {
-  height: 60px;
-  background-color: black;
-  color: white;
-  padding: 10px;
   box-sizing: border-box;
   display: flex;
+  padding:0 20px;
   justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+.menu-top{
+  width: 100%;
+  padding-left: 20px;
 }
 .app-content {
-  background-color: skyblue;
   height: 100%;
   display: flex;
 }
 .left-content {
-  width: 200px;
-  background-color: salmon;
+  width: 250px;
+  background-color: white;
 }
 .right-content {
-  background-color: forestgreen;
+  padding: 10px;
   width: 100%;
 }
-.menu-btn {
+/* .menu-btn {
   color: white;
   padding: 0 10px;
   line-height: 40px;
   font-size: 16px;
-}
+} */
 .leftMenu {
   padding: 0;
   margin: 0;
@@ -61,37 +62,14 @@ body {
   line-height: 30px;
   cursor: pointer;
 }
-.userInfo {
-  min-width: 200px;
-  line-height: 40px;
-  text-align: right;
-  padding: 0 10px;
-}
-.userInfo ul {
-  display: none;
-}
-.userInfo:hover ul {
-  display: block;
-  position: absolute;
-  text-align: center;
-  padding: 0;
-  width: 100px;
-  background: black;
-  right: 10px;
-  top: 33px;
-}
-
-.userInfo:hover ul li {
-  cursor: pointer;
-}
-
 .loginDiv {
-  width: 300px;
+  width: 350px;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 20px;
   box-sizing: border-box;
   font-size: 14px;
+  padding: 20px!important;
   background: aliceblue;
 }
 
@@ -127,4 +105,17 @@ body {
   width: 100%;
   justify-content: center;
   margin-bottom: 10px;
+}
+
+.align-center{
+  text-align: center;
+}
+.admin-name{
+  font-size: 20px;
+    font-weight: bold;
+    font-family: cursive;
+    color: black;
+}
+.ptb10{
+  padding:10px 0;
 }

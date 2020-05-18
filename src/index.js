@@ -6,6 +6,7 @@ import Header from "./common/commpents/Header";
 import Index from "./common/commpents/Index";
 import Login from "./page/login";
 import "./common/css/style.css";
+import "antd/dist/antd.css";
 import { getItem } from "./common/util/localstorage";
 
 const user = JSON.parse(getItem("user")) || {};
@@ -19,8 +20,8 @@ ReactDOM.render(
         <Index />
       </div>
     ) : (
-      <Login />
-    )}
+        <Login />
+      )}
   </Provider>,
   document.getElementById("root")
 );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Button, Form, Input } from "antd";
 import { setItem } from "../common/util/localstorage";
-
+import logo from "../file/logo.png";
 export default class Login extends Component {
   constructor() {
     super();
@@ -16,21 +17,46 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="loginDiv">
-        <p>
-          <span className="label">账号:</span>
-          <input className="input-ctrl" placeholder="请输入账号" />
-        </p>
-        <p>
-          <span className="label">密码:</span>
-          <input className="input-ctrl" placeholder="请输入密码" />
-        </p>
-        <div className="btn-lyout">
-          <button className="login-btn" onClick={this.login}>
+      <Form className="loginDiv" onFinish={this.login}>
+        <Form.Item className={'align-center'}>
+          <img src={logo} style={{ width: '80px' }} />
+        </Form.Item>
+        <Form.Item className={'align-center'}>
+          <div className={'admin-name'}>
+            风陵渡管理系统
+          </div>
+        </Form.Item>
+        <Form.Item
+          name="user"
+          label="账号"
+          rules={[
+            {
+              required: true,
+              message: '请输入账号',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="pass"
+          label="密码"
+          rules={[
+
+            {
+              required: true,
+              message: '请输入密码',
+            },
+          ]}
+        >
+          <Input type='pass' />
+        </Form.Item>
+        <Form.Item className={'align-center'}>
+          <Button type="primary" htmlType="submit">
             登录
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Form.Item>
+      </Form>
     );
   }
 }
