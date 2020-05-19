@@ -14,6 +14,7 @@ class SelectItem extends Component {
 
   render() {
     const { config, onChange, value } = this.props;
+    console.log(this.props)
     const { children } = config;
     console.log(children);
     return (

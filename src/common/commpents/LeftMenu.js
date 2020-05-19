@@ -47,7 +47,7 @@ class LeftMenu extends Component {
                             to={{
                               pathname: i.url,
                               params: { id: 1 },
-                              search: "?id=name",
+                              // search: "?id=name",
                             }}
                           >
                             {i.title}

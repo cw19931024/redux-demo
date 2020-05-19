@@ -44,7 +44,7 @@ body {
 }
 .right-content {
   padding: 10px;
-  width: 100%;
+  flex:1;
 }
 /* .menu-btn {
   color: white;
@@ -75,11 +75,24 @@ body {
   padding: 20px!important;
   background: aliceblue;
 }
-
+.wid100{width: 100%;}
+.lyout-btn{
+  margin-bottom: 10px!important;
+}
+.lyout-btn .ant-btn+.ant-btn{
+  margin-left: 5px;
+}
 .loginDiv p {
   display: flex;
   width: 100%;
   margin: 10px 0;
+}
+.ant-form-item-label{
+  width: 100px;
+  text-align: right;
+}
+.search-lyout{
+  overflow: hidden;
 }
 .loginDiv p .label {
   width: 50px;

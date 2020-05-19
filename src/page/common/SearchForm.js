@@ -4,22 +4,23 @@ import InputItem from "./FormItem/InputItem";
 import SelectItem from "./FormItem/SelectItem";
 import DateItem from "./FormItem/DateItem";
 import "../../css/searchForm.less";
-class SearchForm extends Component {
-  state = {};
 
-  handleSearch(e) {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      console.log(values);
-      this.props.handleSearch && this.props.handleSearch(values);
-    });
+class SearchForm extends Component {
+  formRef = React.createRef();
+  onFinish = (value) => {
+    console.log(value)
+    this.props.handleSearch && this.props.handleSearch(value);
+
   }
 
   handleReset() {
-    this.props.form.resetFields();
+    console.log(this.props)
+
+    console.log(Form)
+    this.formRef.current.resetFields();
+
   }
   getFields() {
-    const { getFieldDecorator } = this.props.form;
     const { formData, col = 8 } = this.props;
     return formData.map((item, index) => {
       return (item => {
@@ -28,45 +29,51 @@ class SearchForm extends Component {
           case "input":
             return (
               <Col span={col} key={item.id}>
-                <Form.Item label={item.label}>
-                  {getFieldDecorator(item.key, {
-                    rules: [
-                      item.rules || {
-                        required: false,
-                        message: "此项必填"
-                      }
-                    ]
-                  })(<InputItem config={commpnent.config} />)}
+                <Form.Item
+                  name={item.key}
+                  label={item.label}
+                  rules={[
+                    {
+                      required: false,
+                      message: '请输入账号',
+                    },
+                  ]}
+                >
+                  <InputItem config={commpnent.config} />
                 </Form.Item>
               </Col>
             );
           case "select":
             return (
-              <Col span={8} key={item.id}>
-                <Form.Item label={item.label}>
-                  {getFieldDecorator(item.key, {
-                    rules: [
-                      item.rules || {
-                        required: false,
-                        message: "此项必填"
-                      }
-                    ]
-                  })(<SelectItem config={commpnent.config} />)}
+              <Col span={col} key={item.id}>
+                <Form.Item
+                  name={item.key}
+                  label={item.label}
+                  rules={[
+                    {
+                      required: false,
+                      message: '请输入账号',
+                    },
+                  ]}
+                >
+                  <SelectItem config={commpnent.config} />
                 </Form.Item>
               </Col>
             );
           case "date":
             return (
-              <Col span={8} key={item.id}>
-                <Form.Item label={item.label}>
-                  {getFieldDecorator(item.key, {
-                    rules: [
-                      item.rules || {
-                        required: false,
-                        message: "此项必填"
-                      }
-                    ]
-                  })(<DateItem config={commpnent.config} />)}
+              <Col span={col} key={item.id}>
+                <Form.Item
+                  name={item.key}
+                  label={item.label}
+                  rules={[
+                    {
+                      required: false,
+                      message: '请输入账号',
+                    },
+                  ]}
+                >
+                  <DateItem config={commpnent.config} />
                 </Form.Item>
               </Col>
             );
@@ -78,8 +85,9 @@ class SearchForm extends Component {
   render() {
     return (
       <Form
+        ref={this.formRef}
         className="ant-advanced-search-form"
-        onSubmit={this.handleSearch.bind(this)}
+        onFinish={this.onFinish}
       >
         <Row gutter={24}>{this.getFields()}</Row>
         <Row>
@@ -100,4 +108,4 @@ class SearchForm extends Component {
   }
 }
 
-export default Form.create()(SearchForm);
+export default SearchForm;

@@ -5,7 +5,10 @@ import store from "./store";
 import Header from "./common/commpents/Header";
 import Index from "./common/commpents/Index";
 import Login from "./page/login";
+import { ConfigProvider } from "antd";
 import "./common/css/style.css";
+import  "./css/common.less";
+import zh_CN from "antd/es/locale/zh_CN";
 import "antd/dist/antd.css";
 import { getItem } from "./common/util/localstorage";
 import {
@@ -20,16 +23,18 @@ const user = JSON.parse(getItem("user")) || {};
 console.log(user);
 
 ReactDOM.render(
-  <Provider store={store}>
-    {user.isLogin ? (
-      <Router id="app">
-        <Header />
-        <Index />
-      </Router>
-    ) : (
-        <Login />
-      )}
-  </Provider>,
+  <ConfigProvider locale={zh_CN}>
+    <Provider store={store}>
+      {user.isLogin ? (
+        <Router id="app">
+          <Header />
+          <Index />
+        </Router>
+      ) : (
+          <Login />
+        )}
+    </Provider>
+  </ConfigProvider>,
   document.getElementById("root")
 );
 

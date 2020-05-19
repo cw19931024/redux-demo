@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Table, Breadcrumb, Icon, Button, Menu } from "antd";
+import { Table, Breadcrumb, Button, Menu, Radio } from "antd";
+import { SettingFilled } from "@ant-design/icons";
 import SearchForm from "./SearchForm";
 import "../../css/viewlyout.less";
 import PropTypes from "prop-types";
@@ -30,18 +31,6 @@ class ListPage extends Component {
 
     return (
       <div className="view-lyout">
-        <div className={"breadcrumb-lyout"}>
-          <Breadcrumb>
-            <Breadcrumb.Item href="">
-              <Icon type="home" />
-            </Breadcrumb.Item>
-            <Breadcrumb.Item href="">
-              <Icon type="user" />
-              <span>客户列表</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>甲方客户</Breadcrumb.Item>
-          </Breadcrumb>
-        </div>
         <div className={"search-lyout"}>
           <ListPage.SearchForm
             formData={formData}
@@ -49,18 +38,14 @@ class ListPage extends Component {
             handleSearch={this.handleSearch.bind(this)}
           />
         </div>
-
-        <Menu mode="horizontal" className={"lyout-btn"}>
+        <div className={"lyout-btn"}>
           {this.btnGroup.map((item, index) => {
             return (
-              <Menu.Item key={item.key} onClick={item.onClick}>
-                <Icon type={item.icon} />
-                {item.title}
-              </Menu.Item>
+              <Button key={index} type={item.type}>{item.title}</Button>
             )
-          })}
-        </Menu>
-
+          })
+          }
+        </div>
         <div className={"table-lyout"}>
           <Table
             size={"small"}
@@ -68,7 +53,7 @@ class ListPage extends Component {
             columns={columns}
             rowSelection={rowSelection}
             scroll={{ y: 340 }}
-            bordered
+            bordered={true}
             pagination={{
               showQuickJumper: true,
               showSizeChanger: true,

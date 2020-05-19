@@ -3,6 +3,16 @@ import { Row, Breadcrumb } from "antd";
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Caft from "../../page/caft";
+import AddParty from "../../page/user/addParty";
+import PartyA from "../../page/user/party-a";
+import PartyB from "../../page/user/party-b";
+import AddCommodity from "../../page/commodity/add";
+import Scuess from "../../page/commodity/scuess";
+import Failure from "../../page/commodity/failure";
+import Audit from "../../page/commodity/audit";
+import Authority from "../../page/config/authority";
+import MenuConfig from "../../page/config/menu";
+import Util from "../../page/config/util";
 class RightContent extends Component {
   constructor() {
     super();
@@ -24,7 +34,16 @@ class RightContent extends Component {
           </Breadcrumb>
         </Row>
         <Switch>
-          <Route path="/commodity/list/scuess" component={Caft} />
+          <Route path="/commodity/scuess" component={Scuess} />
+          <Route path="/commodity/failure" component={Failure} />
+          <Route path="/commodity/audit" component={Audit} />
+          <Route path="/commodity/add" component={AddCommodity} />
+          <Route path="/config/util" component={Util} />
+          <Route path="/config/menu" component={MenuConfig} />
+          <Route path="/config/authority" component={Authority} />
+          <Route path="/user/partyA" component={PartyA} />
+          <Route path="/user/partyB" component={PartyB} />
+          <Route path="/user/add" component={AddParty} />
         </Switch>
       </div>
     );

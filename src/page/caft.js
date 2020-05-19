@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import ListPage from "./common/ListPage";
 import { addCart } from "../store/action/cart-actions";
 import store from "../store";
 import "./index.css";
-class Caft extends Component {
+class Caft extends ListPage {
 
   constructor(props){
     super(props)
